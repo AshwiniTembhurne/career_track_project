@@ -1,0 +1,1 @@
+web: gunicorn career_track.wsgi
