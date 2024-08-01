@@ -29,10 +29,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.codeinstitute-ide.net','.herokuapp.com',]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-ashwinitemb-careertrack-kx3ckw94a2z.ws.codeinstitute-ide.net',
+    'https://career-track-app-7ba211c7add0.herokuapp.com/'
+]
 
 # Application definition
 
@@ -46,7 +49,13 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'user_accounts',
+    'job_application',
+    'admin_panel',
 ]
+
+# Custom User Model
+AUTH_USER_MODEL = 'user_accounts.CustomUser'  # Adjust 'user_accounts.CustomUser' accordingly
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
