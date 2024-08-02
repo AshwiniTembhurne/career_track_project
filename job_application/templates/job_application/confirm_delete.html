@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Application</title>
+</head>
+<body>
+    <h1>Delete Application</h1>
+    <p>Are you sure you want to delete the application for {{ application.job_title }} at {{ application.company_name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'application_details' application.id %}">Cancel</a>
+</body>
+</html>
