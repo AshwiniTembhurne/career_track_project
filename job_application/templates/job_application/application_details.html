@@ -8,7 +8,7 @@
 <body>
     <h1>{{ application.company_name }}</h1>
     <p><strong>Job Title:</strong> {{ application.job_title }}</p>
-    <p><strong>Application Date:</strong> {{ application.application_date }}</p>
+    <p><strong>Application Date:</strong> {{ application.application_date|date:"Y-m-d" }}</p>
     <p><strong>Status:</strong> {{ application.status }}</p>
     <p><strong>Notes:</strong> {{ application.notes }}</p>
     <a href="{% url 'edit_application' application.id %}">Edit</a>
@@ -16,6 +16,6 @@
         {% csrf_token %}
         <button type="submit">Delete</button>
     </form>
-    <a href="{% url 'home' %}">Back to List</a>
+    <a href="{% url 'application_list' %}">Back to List</a>
 </body>
 </html>

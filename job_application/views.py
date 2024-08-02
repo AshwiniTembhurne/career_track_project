@@ -11,7 +11,9 @@ def add_application(request):
         form = JobApplicationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('application_list')  # Ensure this URL name matches the list view
+        else:
+            print(form.errors)  # Debugging output
     else:
         form = JobApplicationForm()
     return render(request, 'job_application/application_form.html', {'form': form})
@@ -23,6 +25,8 @@ def edit_application(request, id):
         if form.is_valid():
             form.save()
             return redirect('application_details', id=id)
+        else:
+            print(form.errors)  # Debugging output
     else:
         form = JobApplicationForm(instance=application)
     return render(request, 'job_application/application_form.html', {'form': form})
@@ -31,5 +35,9 @@ def delete_application(request, id):
     application = get_object_or_404(JobApplication, id=id)
     if request.method == 'POST':
         application.delete()
-        return redirect('home')
+        return redirect('application_list')  # Ensure this URL name matches the list view
     return render(request, 'job_application/confirm_delete.html', {'application': application})
+
+def application_list(request):
+    applications = JobApplication.objects.all()
+    return render(request, 'job_application/application_list.html', {'applications': applications})

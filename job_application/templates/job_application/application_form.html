@@ -12,6 +12,6 @@
         {{ form.as_p }}
         <button type="submit">{% if form.instance.pk %}Save{% else %}Add{% endif %}</button>
     </form>
-    <a href="{% url 'home' %}">Back to List</a>
+    <a href="{% url 'application_list' %}">Back to List</a> <!-- Updated URL -->
 </body>
 </html>
