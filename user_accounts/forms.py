@@ -1,15 +1,32 @@
-# user_accounts/forms.py
-
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import get_user_model
+from django.core.validators import RegexValidator
+from .models import CustomUser
 
-User = get_user_model()
+class UserRegistrationForm(forms.ModelForm):
+    phone_number = forms.CharField(
+        validators=[
+            RegexValidator(
+                regex=r'^\+?1?\d{9,15}$',
+                message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+            ),
+        ],
+        required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Enter your phone number'})
+    )
+    
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
+    password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}))
 
-class SignUpForm(UserCreationForm):
     class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2', 'phone_number')
+        model = CustomUser
+        fields = ['username', 'email', 'phone_number', 'password']
 
-class LoginForm(AuthenticationForm):
-    pass
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        password_confirm = cleaned_data.get("password_confirm")
+
+        if password != password_confirm:
+            raise forms.ValidationError("Passwords do not match")
+
+        return cleaned_data

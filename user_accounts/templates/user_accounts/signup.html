@@ -1,9 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script>
+        function validateForm() {
+            var phone = document.getElementById('id_phone_number').value;
+            var regex = /^\+?1?\d{9,15}$/;
+            if (!regex.test(phone)) {
+                alert("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" onsubmit="return validateForm();">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+    </form>
+    <a href="{% url 'login' %}">Already have an account? Log in here.</a>
+</body>
+</html>

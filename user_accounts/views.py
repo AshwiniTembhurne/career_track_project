@@ -1,31 +1,35 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from .forms import UserRegistrationForm
+
+def home(request):
+    return render(request, 'user_accounts/home.html')
 
 def signup_view(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)  # Log the user in
-            return redirect('home')  # Redirect to a home page or similar
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            messages.success(request, 'Registration successful! You can now log in.')
+            return redirect('login')
+        else:
+            messages.error(request, 'Registration failed. Please correct the errors below.')
     else:
-        form = SignUpForm()
+        form = UserRegistrationForm()
     return render(request, 'user_accounts/signup.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
-        form = LoginForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
             login(request, user)
+            messages.success(request, 'Login successful!')
             return redirect('home')
-    else:
-        form = LoginForm()
-    return render(request, 'user_accounts/login.html', {'form': form})
-
-def home(request):
-
-    return render(request, 'user_accounts/home.html')
-
-
+        else:
+            messages.error(request, 'Invalid username or password.')
+    return render(request, 'user_accounts/login.html')
