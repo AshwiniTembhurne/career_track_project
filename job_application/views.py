@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from .models import JobApplication
 from .forms import JobApplicationForm
 
@@ -11,7 +12,8 @@ def add_application(request):
         form = JobApplicationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('application_list')  # Ensure this URL name matches the list view
+            messages.success(request, 'Job application added successfully!')
+            return redirect('application_list')
         else:
             print(form.errors)  # Debugging output
     else:
@@ -24,6 +26,7 @@ def edit_application(request, id):
         form = JobApplicationForm(request.POST, instance=application)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Job application updated successfully!')
             return redirect('application_details', id=id)
         else:
             print(form.errors)  # Debugging output
@@ -35,7 +38,8 @@ def delete_application(request, id):
     application = get_object_or_404(JobApplication, id=id)
     if request.method == 'POST':
         application.delete()
-        return redirect('application_list')  # Ensure this URL name matches the list view
+        messages.success(request, 'Job application deleted successfully!')
+        return redirect('application_list')
     return render(request, 'job_application/confirm_delete.html', {'application': application})
 
 def application_list(request):

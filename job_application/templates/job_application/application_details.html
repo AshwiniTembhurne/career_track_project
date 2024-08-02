@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Details</title>
+    <script>
+        function confirmDeletion() {
+            return confirm("Are you sure you want to delete this application?");
+        }
+    </script>
 </head>
 <body>
     <h1>{{ application.company_name }}</h1>
     <p><strong>Job Title:</strong> {{ application.job_title }}</p>
     <p><strong>Application Date:</strong> {{ application.application_date|date:"Y-m-d" }}</p>
-    <p><strong>Status:</strong> {{ application.status }}</p>
+    <p><strong>Status:</strong> {{ application.get_status_display }}</p>
     <p><strong>Notes:</strong> {{ application.notes }}</p>
     <a href="{% url 'edit_application' application.id %}">Edit</a>
-    <form method="post" action="{% url 'delete_application' application.id %}">
+    <form method="post" action="{% url 'delete_application' application.id %}" onsubmit="return confirmDeletion();">
         {% csrf_token %}
         <button type="submit">Delete</button>
     </form>

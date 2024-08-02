@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>Job Applications</h1>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <ul>
         {% for application in applications %}
         <li>

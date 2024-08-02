@@ -1,11 +1,17 @@
 from django.db import models
 
-# Create your models here.
 class JobApplication(models.Model):
+    STATUS_CHOICES = [
+        ('AP', 'Applied'),
+        ('RJ', 'Rejected'),
+        ('IP', 'In Progress'),
+        ('CP', 'Completed'),
+    ]
+
     company_name = models.CharField(max_length=255)
     job_title = models.CharField(max_length=255)
     application_date = models.DateField()
-    status = models.CharField(max_length=100)
+    status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='AP')
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
