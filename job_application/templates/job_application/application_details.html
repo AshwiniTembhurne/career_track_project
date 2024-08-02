@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details</title>
+</head>
+<body>
+    <h1>{{ application.company_name }}</h1>
+    <p><strong>Job Title:</strong> {{ application.job_title }}</p>
+    <p><strong>Application Date:</strong> {{ application.application_date }}</p>
+    <p><strong>Status:</strong> {{ application.status }}</p>
+    <p><strong>Notes:</strong> {{ application.notes }}</p>
+    <a href="{% url 'edit_application' application.id %}">Edit</a>
+    <form method="post" action="{% url 'delete_application' application.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'home' %}">Back to List</a>
+</body>
+</html>
