@@ -11,9 +11,9 @@ def add_application(request):
     if request.method == 'POST':
         form = JobApplicationForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_application = form.save()
             messages.success(request, 'Job application added successfully!')
-            return redirect('application_list')
+            return redirect('application_details', id=new_application.id)
         else:
             print(form.errors)  # Debugging output
     else:
