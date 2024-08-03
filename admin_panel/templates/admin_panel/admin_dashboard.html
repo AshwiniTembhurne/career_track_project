@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<a href="{% url 'admin_add_application' %}">Add New Job Application</a>
+<table>
+    <thead>
+        <tr>
+            <th>Job Title</th>
+            <th>Company Name</th>
+            <th>Status</th>
+            <th>Application Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.job_title }}</td>
+            <td>{{ application.company_name }}</td>
+            <td>{{ application.get_status_display }}</td>
+            <td>{{ application.application_date }}</td>
+            <td>
+                <a href="{% url 'admin_application_details' application.id %}">View</a> |
+                <a href="{% url 'admin_edit_application' application.id %}">Edit</a> |
+                <a href="{% url 'admin_delete_application' application.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

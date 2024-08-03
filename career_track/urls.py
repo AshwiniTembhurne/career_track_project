@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('', home, name='home'),  # Root URL directs to the home view
     path('jobs/', include('job_application.urls')),
+    path('admin_panel/', include('admin_panel.urls')),
 ]
