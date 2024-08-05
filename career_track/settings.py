@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'user_accounts',
     'job_application',
     'admin_panel',
+    'pages',
 ]
 
 # Custom User Model
