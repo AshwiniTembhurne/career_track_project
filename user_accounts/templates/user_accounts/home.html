@@ -1,13 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to the Home Page</h1>
-    <h3>Your Pathway To Career Success.</h3>
-    <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Log In</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero text-center py-5 bg-light">
+    <h1>Your Pathway To Career Success</h1>
+    <p>Manage your job applications effectively.</p>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Get Started</a>
+</div>
+
+<div class="features mt-5 container">
+    <h2 class="text-center">Our Features</h2>
+    <ul class="list-unstyled">
+        <li class="py-2">Track your job applications efficiently.</li>
+        <li class="py-2">Receive reminders for important dates and deadlines.</li>
+        <li class="py-2">Analyze your job search statistics and improve your strategy.</li>
+    </ul>
+</div>
+
+<div class="testimonials mt-5 container">
+    <h2 class="text-center">Testimonials</h2>
+    <blockquote class="blockquote">
+        <p class="mb-0">"CareerTrack helped me organize my job search and land my dream job!" - User A</p>
+    </blockquote>
+    <blockquote class="blockquote">
+        <p class="mb-0">"The reminders and analytics provided by CareerTrack were invaluable in my job search." - User B</p>
+    </blockquote>
+</div>
+
+<div class="call-to-action mt-5 text-center">
+    <h2>Get Started Today</h2>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+</div>
+{% endblock %}
