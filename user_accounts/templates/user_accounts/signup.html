@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <script>
-        function validateForm() {
-            var phone = document.getElementById('id_phone_number').value;
-            var regex = /^\+?1?\d{9,15}$/;
-            if (!regex.test(phone)) {
-                alert("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.");
-                return false;
-            }
-            return true;
-        }
-    </script>
-</head>
-<body>
-    <h1>Sign Up</h1>
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Sign Up</h1>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -25,11 +12,38 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <form method="post" onsubmit="return validateForm();">
+    <form method="post" onsubmit="return validateForm();" class="mx-auto" style="max-width: 500px;">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
+        <div class="mb-3">
+            {{ form.username.label_tag }} {{ form.username }}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div class="mb-3">
+            {{ form.phone_number.label_tag }} {{ form.phone_number }}
+        </div>
+        <div class="mb-3">
+            {{ form.password.label_tag }} {{ form.password }}
+        </div>
+        <div class="mb-3">
+            {{ form.password_confirm.label_tag }} {{ form.password_confirm }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
     </form>
-    <a href="{% url 'login' %}">Already have an account? Log in here.</a>
-</body>
-</html>
+    <div class="text-center mt-3">
+        <a href="{% url 'login' %}">Already have an account? Log in here.</a>
+    </div>
+</div>
+<script>
+    function validateForm() {
+        var phone = document.getElementById('id_phone_number').value;
+        var regex = /^\+?1?\d{9,15}$/;
+        if (!regex.test(phone)) {
+            alert("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.");
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}

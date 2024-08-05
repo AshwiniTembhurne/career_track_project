@@ -1,3 +1,59 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color: #154c79;
+    color: white;
+}
+
+/* Navbar Styles */
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #e07b39 !important;
+}
+
+/* Footer Styles */
+footer {
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background-color: #e07b39;
+    border-color: #e07b39;
+}
+
+.btn-primary:hover {
+    background-color: #cf6f34;
+    border-color: #cf6f34;
+}
+
+/* Content Layout Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+}
+
 h1 {
-    color: blue;
-    }
+    margin-bottom: 20px;
+}

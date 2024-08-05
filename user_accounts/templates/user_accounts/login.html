@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Login</h1>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -14,14 +12,20 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <form method="post">
+    <form method="post" class="mx-auto" style="max-width: 500px;">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
     </form>
-    <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
-</body>
-</html>
+    <div class="text-center mt-3">
+        <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
+    </div>
+</div>
+{% endblock %}

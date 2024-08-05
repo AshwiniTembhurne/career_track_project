@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import UserRegistrationForm
 
@@ -33,3 +33,8 @@ def login_view(request):
         else:
             messages.error(request, 'Invalid username or password.')
     return render(request, 'user_accounts/login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'You have been logged out successfully.')
+    return redirect('home')

@@ -7,8 +7,7 @@
 <p>If you have any questions, feedback, or need assistance, please feel free to reach out to us. We are here to help you!</p>
 <p>Email: support@careertrack.com</p>
 <p>Phone: +123 456 7890</p>
-<p>Address: 123 CareerTrack Blvd, Suite 100, JobCity, Country</p>
-<form method="post" action="{% url 'contact_form' %}">
+<form method="post" action="{% url 'contact_us' %}">
     {% csrf_token %}
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
