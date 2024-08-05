@@ -16,6 +16,8 @@ class UserRegistrationForm(forms.ModelForm):
     
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
     password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email Address'}))
 
     class Meta:
         model = CustomUser
@@ -27,6 +29,6 @@ class UserRegistrationForm(forms.ModelForm):
         password_confirm = cleaned_data.get("password_confirm")
 
         if password != password_confirm:
-            raise forms.ValidationError("Passwords do not match")
+            self.add_error('password_confirm', "Passwords do not match")
 
         return cleaned_data

@@ -1,47 +1,51 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import JobApplication
 from .forms import JobApplicationForm
 
+@login_required
+def application_list(request):
+    applications = JobApplication.objects.filter(user=request.user)
+    return render(request, 'job_application/application_list.html', {'applications': applications})
+
+@login_required
 def application_details(request, id):
-    application = get_object_or_404(JobApplication, id=id)
+    application = get_object_or_404(JobApplication, id=id, user=request.user)
     return render(request, 'job_application/application_details.html', {'application': application})
 
+@login_required
 def add_application(request):
     if request.method == 'POST':
         form = JobApplicationForm(request.POST)
         if form.is_valid():
-            new_application = form.save()
+            new_application = form.save(commit=False)
+            new_application.user = request.user
+            new_application.save()
             messages.success(request, 'Job application added successfully!')
             return redirect('application_details', id=new_application.id)
-        else:
-            print(form.errors)  # Debugging output
     else:
         form = JobApplicationForm()
     return render(request, 'job_application/application_form.html', {'form': form})
 
+@login_required
 def edit_application(request, id):
-    application = get_object_or_404(JobApplication, id=id)
+    application = get_object_or_404(JobApplication, id=id, user=request.user)
     if request.method == 'POST':
         form = JobApplicationForm(request.POST, instance=application)
         if form.is_valid():
             form.save()
             messages.success(request, 'Job application updated successfully!')
             return redirect('application_details', id=id)
-        else:
-            print(form.errors)  # Debugging output
     else:
         form = JobApplicationForm(instance=application)
     return render(request, 'job_application/application_form.html', {'form': form})
 
+@login_required
 def delete_application(request, id):
-    application = get_object_or_404(JobApplication, id=id)
+    application = get_object_or_404(JobApplication, id=id, user=request.user)
     if request.method == 'POST':
         application.delete()
         messages.success(request, 'Job application deleted successfully!')
         return redirect('application_list')
     return render(request, 'job_application/confirm_delete.html', {'application': application})
-
-def application_list(request):
-    applications = JobApplication.objects.all()
-    return render(request, 'job_application/application_list.html', {'applications': applications})

@@ -23,6 +23,7 @@ body {
 
 .footer {
     background-color: #154c79;
+    position:absolute;
     color: #ffffff;
     padding: 20px 0;
 }

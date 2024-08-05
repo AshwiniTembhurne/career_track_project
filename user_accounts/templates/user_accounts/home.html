@@ -16,28 +16,21 @@
 <!-- Features Section -->
 <section class="features-section py-5" style="background-color: #D9D9D9;">
     <div class="container">
-        <h2 class="text-center mb-4">Our Features</h2>
         <div class="row">
             <div class="col-md-4 text-center">
-                <div class="feature-icon mb-3">
-                    <i class="bi bi-briefcase-fill" style="font-size: 2rem; color: #154c79;"></i>
-                </div>
-                <h5>Job Search</h5>
-                <p>Find the latest job openings and opportunities that match your skills and interests.</p>
+                <i class="bi bi-briefcase-fill" style="font-size: 3rem; color: #154c79;"></i>
+                <h3>Job Listings</h3>
+                <p>Find the latest job openings tailored to your skills and interests.</p>
             </div>
             <div class="col-md-4 text-center">
-                <div class="feature-icon mb-3">
-                    <i class="bi bi-journal-check" style="font-size: 2rem; color: #154c79;"></i>
-                </div>
-                <h5>Application Tracking</h5>
-                <p>Track your job applications and get updates on their status in real-time.</p>
+                <i class="bi bi-card-checklist" style="font-size: 3rem; color: #154c79;"></i>
+                <h3>Application Tracking</h3>
+                <p>Track your job applications and get real-time updates.</p>
             </div>
             <div class="col-md-4 text-center">
-                <div class="feature-icon mb-3">
-                    <i class="bi bi-person-badge-fill" style="font-size: 2rem; color: #154c79;"></i>
-                </div>
-                <h5>Profile Management</h5>
-                <p>Manage your profile, resume, and cover letters all in one place.</p>
+                <i class="bi bi-person-lines-fill" style="font-size: 3rem; color: #154c79;"></i>
+                <h3>Career Advice</h3>
+                <p>Get professional career advice to boost your job search.</p>
             </div>
         </div>
     </div>
@@ -46,44 +39,24 @@
 <!-- Testimonials Section -->
 <section class="testimonials-section py-5">
     <div class="container">
-        <h2 class="text-center mb-4">What Our Users Say</h2>
+        <h2 class="text-center mb-5">What Our Users Say</h2>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card testimonial-card">
-                    <img src="{% static 'images/user_a.png' %}" class="card-img-top" alt="User A">
-                    <div class="card-body">
-                        <p class="card-text">"CareerTrack has completely changed my job search experience. I found my dream job within a week!"</p>
-                        <h5 class="card-title">User A</h5>
-                    </div>
-                </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/user_a.png' %}" class="rounded-circle mb-3" alt="User A" width="100" height="100">
+                <p class="font-italic">"CareerTrack helped me find my dream job in no time!"</p>
+                <p><strong>User A</strong></p>
             </div>
-            <div class="col-md-4">
-                <div class="card testimonial-card">
-                    <img src="{% static 'images/user_b.png' %}" class="card-img-top" alt="User B">
-                    <div class="card-body">
-                        <p class="card-text">"The application tracking feature is a lifesaver. I can see all my job applications in one place."</p>
-                        <h5 class="card-title">User B</h5>
-                    </div>
-                </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/user_b.png' %}" class="rounded-circle mb-3" alt="User B" width="100" height="100">
+                <p class="font-italic">"The application tracking feature is fantastic. I always know where I stand."</p>
+                <p><strong>User B</strong></p>
             </div>
-            <div class="col-md-4">
-                <div class="card testimonial-card">
-                    <img src="{% static 'images/user_c.png' %}" class="card-img-top" alt="User C">
-                    <div class="card-body">
-                        <p class="card-text">"Managing my profile and resumes is so easy now. CareerTrack is a must-have for any job seeker."</p>
-                        <h5 class="card-title">User C</h5>
-                    </div>
-                </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/user_c.png' %}" class="rounded-circle mb-3" alt="User C" width="100" height="100">
+                <p class="font-italic">"Great career advice that helped me ace my interviews!"</p>
+                <p><strong>User C</strong></p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Call to Action Section -->
-<section class="cta-section py-5" style="background-color: #D9D9D9;">
-    <div class="container text-center">
-        <h2 class="mb-4">Ready to Take the Next Step in Your Career?</h2>
-        <a href="{% url 'signup' %}" class="btn btn-primary btn-lg" style="background-color: #e07b39; border-color: #e07b39;">Sign Up Today</a>
     </div>
 </section>
 {% endblock %}

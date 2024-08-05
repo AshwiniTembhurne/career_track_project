@@ -1,3 +1,5 @@
+# job_application/forms.py
+
 from django import forms
 from .models import JobApplication
 
@@ -13,6 +15,6 @@ class JobApplicationForm(forms.ModelForm):
         widgets = {
             'company_name': forms.TextInput(attrs={'placeholder': 'Enter Company Name'}),
             'job_title': forms.TextInput(attrs={'placeholder': 'Enter Job Title'}),
-            'status': forms.Select(choices=JobApplication.STATUS_CHOICES),  # Use Select widget for dropdown
+            'status': forms.Select(choices=JobApplication.STATUS_CHOICES),
             'notes': forms.Textarea(attrs={'placeholder': 'Enter any additional notes'}),
         }

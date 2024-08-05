@@ -1,4 +1,7 @@
+# job_application/models.py
+
 from django.db import models
+from django.conf import settings
 
 class JobApplication(models.Model):
     STATUS_CHOICES = [
@@ -9,6 +12,7 @@ class JobApplication(models.Model):
         ('CP', 'Completed'),
     ]
 
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=255)
     job_title = models.CharField(max_length=255)
     application_date = models.DateField()
