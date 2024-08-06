@@ -6,6 +6,8 @@ body {
     background-color: #154c79;
     color: #ffffff;
     padding: 50px 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .features-section, .cta-section {
@@ -22,10 +24,12 @@ body {
 }
 
 .footer {
-    background-color: #154c79;
-    position:relative;
+    background-color: #154c79 !important; /* Ensure the correct color */
     color: #ffffff;
     padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
 .footer a {
@@ -50,14 +54,6 @@ body {
     margin-right: 10px;
 }
 
-.container {
-    max-width: 1200px;
-}
-
-.container img {
-    max-width: 100%;
-    height: auto;
-}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -99,4 +95,43 @@ body {
 
 .btn {
     margin: 0 2px;
+}
+
+.btn-primary {
+    background-color: #e07b39;
+    border-color: #e07b39;
+}
+
+.btn-primary:hover {
+    background-color: #d2691e;
+    border-color: #d2691e;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-container {
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    max-width: 600px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#content {
+    flex: 1 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
