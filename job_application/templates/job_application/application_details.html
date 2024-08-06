@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h1>{{ application.job_title }} at {{ application.company_name }}</h1>
     <p><strong>Date Applied:</strong> {{ application.application_date }}</p>
-    <p><strong>Status:</strong> {{ application.status }}</p>
+    <p><strong>Status:</strong> {{ application.get_status_display }}</p>
     <p><strong>Notes:</strong> {{ application.notes }}</p>
     <a href="{% url 'edit_application' application.id %}" class="btn btn-primary">Edit</a>
     <form action="{% url 'delete_application' application.id %}" method="post" style="display:inline;">

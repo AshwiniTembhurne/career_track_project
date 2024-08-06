@@ -7,7 +7,8 @@
     <div class="list-group">
         {% for application in applications %}
             <a href="{% url 'application_details' application.id %}" class="list-group-item list-group-item-action">
-                {{ application.job_title }} at {{ application.company_name }}
+                <strong>{{ application.job_title }}</strong> at {{ application.company_name }}<br>
+                <span class="text-muted">Status: {{ application.get_status_display }}</span>
             </a>
         {% endfor %}
     </div>
