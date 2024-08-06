@@ -8,6 +8,7 @@
 <p><strong>Company Name:</strong> {{ application.company_name }}</p>
 <p><strong>Status:</strong> {{ application.get_status_display }}</p>
 <p><strong>Application Date:</strong> {{ application.application_date }}</p>
+<p><strong>Added by:</strong> {{ application.user.username }}</p>
 <a href="{% url 'admin_edit_application' application.id %}">Edit</a> | 
 <a href="{% url 'admin_delete_application' application.id %}">Delete</a> |
 <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
