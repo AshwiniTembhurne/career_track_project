@@ -1,5 +1,3 @@
-# job_application/models.py
-
 from django.db import models
 from django.conf import settings
 
@@ -9,7 +7,8 @@ class JobApplication(models.Model):
         ('AP', 'Applied'),
         ('RJ', 'Rejected'),
         ('IP', 'In Progress'),
-        ('CP', 'Completed'),
+        ('CD', 'Completed'),
+        ('OD', 'Offered'),
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
