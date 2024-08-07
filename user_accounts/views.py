@@ -41,7 +41,15 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')
-    return redirect('home')
+    return redirect('logout_success')
+
+def admin_logout_view(request):
+    logout(request)
+    messages.success(request, 'Admin has been logged out successfully.')
+    return redirect('logout_success')
+
+def logout_success(request):
+    return render(request, 'user_accounts/logout_success.html')
 
 @login_required
 def user_dashboard(request):

@@ -5,6 +5,8 @@ from user_accounts.views import home, signup_view, login_view, logout_view, user
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # Root URL directs to the home view
+    path('accounts/', include('user_accounts.urls')),
+    path('', include('pages.urls')), 
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
