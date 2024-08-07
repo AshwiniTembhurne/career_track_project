@@ -3,27 +3,35 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center my-4">Login</h1>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <form method="post" class="form-login">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" id="username" name="username" class="form-control" required>
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 500px; background-color: #D9D9D9;">
+        <div class="card-body">
+            <h1 class="text-center">Login</h1>
+            {% if messages %}
+                <div class="alert alert-info" role="alert">
+                    <ul class="mb-0">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form method="post" class="mx-auto">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="background-color: #e07b39; border-color: #e07b39;">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="background-color: #e07b39; border-color: #e07b39;">Login</button>
-    </form>
-    <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
+    </div>
 </div>
 {% endblock %}
