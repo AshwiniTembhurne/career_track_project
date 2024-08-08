@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.core.paginator import Paginator
 from job_application.models import JobApplication
 from job_application.forms import JobApplicationForm
 
 def admin_dashboard(request):
     applications = JobApplication.objects.all()
-    return render(request, 'admin_panel/admin_dashboard.html', {'applications': applications})
+    paginator = Paginator(applications, 10)  # Show 10 applications per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'admin_panel/admin_dashboard.html', {'page_obj': page_obj})
 
 def admin_application_details(request, id):
     application = get_object_or_404(JobApplication, id=id)
