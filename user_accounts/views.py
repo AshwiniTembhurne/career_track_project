@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
 from .forms import UserRegistrationForm
-from job_application.models import JobApplication
 
 def home(request):
     return render(request, 'user_accounts/home.html')
@@ -53,11 +51,7 @@ def logout_success(request):
 
 @login_required
 def user_dashboard(request):
-    applications = JobApplication.objects.filter(user=request.user)
-    paginator = Paginator(applications, 10)  # Show 10 applications per page
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'user_accounts/user_dashboard.html', {'page_obj': page_obj})
+    return render(request, 'user_accounts/user_dashboard.html')
 
 @login_required
 def admin_dashboard(request):

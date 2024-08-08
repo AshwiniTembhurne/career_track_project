@@ -1,13 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 from .models import JobApplication
 from .forms import JobApplicationForm
 
 @login_required
 def application_list(request):
     applications = JobApplication.objects.filter(user=request.user)
-    return render(request, 'job_application/application_list.html', {'applications': applications})
+    paginator = Paginator(applications, 10)  # Show 10 applications per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'job_application/application_list.html', {'page_obj': page_obj})
 
 @login_required
 def application_details(request, id):
