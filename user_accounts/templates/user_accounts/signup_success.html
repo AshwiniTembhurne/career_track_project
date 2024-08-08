@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Success!</h4>
+        <p>You have successfully signed up!</p>
+        <hr>
+        <p class="mb-0">
+            You can now <a href="{% url 'login' %}" class="alert-link">login here</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}
