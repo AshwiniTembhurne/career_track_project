@@ -1,5 +1,3 @@
-# job_application/forms.py
-
 from django import forms
 from .models import JobApplication
 
