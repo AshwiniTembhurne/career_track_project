@@ -1,22 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .forms import ContactForm  # Import the form
 
+# About Us view remains the same
 def about_us(request):
     return render(request, 'pages/about_us.html')
 
+# Updated Contact Us view
 def contact_us(request):
     if request.method == 'POST':
-        # Process form data here
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        
-        # Normally, you would send this data to your email or save it in your database.
-        # For simplicity, we're just printing it to the console (you can replace this with your logic).
-        print(f"Contact Form Submitted: {name}, {email}, {message}")
-        
-        messages.success(request, 'Your message has been sent successfully!')
-        return redirect('contact_us')  # Redirect to the same page after submission
+        form = ContactForm(request.POST)  # Bind the form to POST data
+        if form.is_valid():  # Validate the form data
+            form.save()  # Save the form data to the database
+            messages.success(request, 'Your message has been sent successfully!')
+            return redirect('contact_us')  # Redirect to the same page after submission
+    else:
+        form = ContactForm()  # Render an empty form for GET requests
     
-    # Ensure a response is returned for GET requests
-    return render(request, 'pages/contact_us.html')
+    return render(request, 'pages/contact_us.html', {'form': form})  # Pass the form to the template

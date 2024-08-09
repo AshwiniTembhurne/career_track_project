@@ -7,27 +7,41 @@
     <div class="card mx-auto" style="max-width: 500px; background-color: #D9D9D9;">
         <div class="card-body">
             <h1 class="text-center">Login</h1>
-            {% if messages %}
+
+            <!-- Display non-field errors (e.g., invalid login attempts) -->
+            {% if form.non_field_errors %}
                 <div class="alert alert-info" role="alert">
                     <ul class="mb-0">
-                        {% for message in messages %}
-                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% for error in form.non_field_errors %}
+                            <li class="text-danger">{{ error }}</li>
                         {% endfor %}
                     </ul>
                 </div>
             {% endif %}
+
             <form method="post" class="mx-auto">
                 {% csrf_token %}
+                
+                <!-- Username field with validation -->
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" required>
+                    <input type="text" id="username" name="username" class="form-control" required pattern="^\S+(\s\S+)?$">
+                    {% if form.username.errors %}
+                        <div class="text-danger">{{ form.username.errors }}</div>
+                    {% endif %}
                 </div>
+                
+                <!-- Password field with validation -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" name="password" class="form-control" required>
                 </div>
+                
+                <!-- Submit button -->
                 <button type="submit" class="btn btn-primary w-100" style="background-color: #e07b39; border-color: #e07b39;">Login</button>
             </form>
+
+            <!-- Link to sign up page -->
             <div class="text-center mt-3">
                 <a href="{% url 'signup' %}">Don't have an account? Sign up here.</a>
             </div>
