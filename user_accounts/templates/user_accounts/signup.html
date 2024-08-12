@@ -55,6 +55,9 @@
             {% if form.password.errors %}
                 <div class="text-danger">{{ form.password.errors }}</div>
             {% endif %}
+            <small class="form-text text-muted">
+                Your password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one special character.
+            </small>
         </div>
 
         <!-- Password confirmation field with validation errors -->

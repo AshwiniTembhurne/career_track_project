@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
+from django.contrib.auth.password_validation import validate_password
 from .models import CustomUser
 
 class UserRegistrationForm(forms.ModelForm):
@@ -14,7 +15,10 @@ class UserRegistrationForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'Enter your phone number'})
     )
     
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}),
+        validators=[validate_password]  # Adding Django's password validation
+    )
     password_confirm = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}))
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email Address'}))
