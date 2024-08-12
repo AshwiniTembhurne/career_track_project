@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: yellow !important;
 }
 
 .hero-section {
@@ -24,12 +25,15 @@ body {
 }
 
 .footer {
-    background-color: #154c79 !important; /* Ensure the correct color */
+    background-color: #154c79 !important;
     color: #ffffff;
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
+    flex-shrink: 0;
 }
 
 .footer a {
@@ -52,6 +56,14 @@ body {
 
 .navbar-brand img {
     margin-right: 10px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #d2691e !important;
 }
 
 .container {
@@ -94,7 +106,10 @@ body {
 }
 
 .btn {
-    margin: 0 2px;
+    padding: 0.375rem 0.75rem !important; 
+    margin: 0 2px !important; 
+    font-size: 0.875rem !important; 
+    border-radius: 0.25rem !important; 
 }
 
 .btn-primary {
@@ -105,6 +120,17 @@ body {
 .btn-primary:hover {
     background-color: #d2691e;
     border-color: #d2691e;
+}
+
+/* style the delete button */
+.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.btn-danger:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
 }
 
 .container img {
@@ -134,4 +160,71 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* Additional form styles */
+form {
+    margin: 20px 0;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+    border-color: #154c79;
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 76, 121, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #e07b39;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d2691e;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 576px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tbody td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .table tbody td {
+        border-top: 1px solid #dee2e6;
+        padding: 0.75rem;
+    }
 }

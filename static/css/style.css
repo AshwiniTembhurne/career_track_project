@@ -1,7 +1,12 @@
+/* General Body Style */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
+/* Hero Section */
 .hero-section {
     background-color: #154c79;
     color: #ffffff;
@@ -10,26 +15,27 @@ body {
     background-position: center;
 }
 
-.features-section, .cta-section {
+/* Section Padding */
+.features-section, .cta-section, .testimonials-section {
     padding: 50px 0;
 }
 
-.testimonials-section {
-    padding: 50px 0;
-}
-
+/* Card Styles */
 .testimonial-card {
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer Styling */
 .footer {
-    background-color: #154c79 !important; /* Ensure the correct color */
+    background-color: #154c79 !important;
     color: #ffffff;
-    padding: 20px 0;
-    width: 100%;
+    padding: 10px 0;
+    text-align: center;
     position: relative;
+    width: 100%;
     bottom: 0;
+    flex-shrink: 0;
 }
 
 .footer a {
@@ -41,6 +47,7 @@ body {
     text-decoration: underline;
 }
 
+/* Navbar Styling */
 .navbar {
     margin-bottom: 20px;
 }
@@ -54,12 +61,14 @@ body {
     margin-right: 10px;
 }
 
+/* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Table Styling */
 .table {
     width: 100%;
     margin-bottom: 1rem;
@@ -93,25 +102,35 @@ body {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Button Styling */
 .btn {
     margin: 0 2px;
+    padding: 0.375rem 0.75rem !important; 
+    font-size: 0.875rem !important; 
+    border-radius: 0.25rem !important; 
 }
 
 .btn-primary {
-    background-color: #e07b39;
-    border-color: #e07b39;
+    background-color: #e07b39 !important;
+    border-color: #e07b39 !important;
 }
 
 .btn-primary:hover {
-    background-color: #d2691e;
-    border-color: #d2691e;
+    background-color: #d2691e !important;
+    border-color: #d2691e !important;
 }
 
-.container img {
-    max-width: 100%;
-    height: auto;
+.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
 }
 
+.btn-danger:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* Form Container */
 .form-container {
     background-color: #D9D9D9;
     padding: 20px;
@@ -121,26 +140,7 @@ body {
     max-width: 600px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-#content {
-    flex: 1 0 auto;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Additional form styles */
-form {
-    margin: 20px 0;
-}
-
+/* Form Inputs */
 input[type="text"], input[type="email"], input[type="password"], textarea, select {
     width: 100%;
     padding: 10px;
@@ -173,22 +173,69 @@ button[type="submit"]:hover {
     background-color: #d2691e;
 }
 
-
-.btn {
-    padding: 0.375rem 0.75rem !important; 
-    margin: 0 2px !important; 
-    font-size: 0.875rem !important; 
-    border-radius: 0.25rem !important; 
+/* Wrapper for full height */
+html, body {
+    height: 100%;
 }
 
-/* style the delete button */
-.btn-danger {
-    background-color: #dc3545 !important;
-    border-color: #dc3545 !important;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.btn-danger:hover {
-    background-color: #c82333 !important;
-    border-color: #bd2130 !important;
+/* Content Section */
+#content {
+    flex: 1;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar-brand img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .navbar .nav-link {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 15px 0;
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+    /* Make the application table columns stack vertically */
+    .table td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .table th {
+        display: none; /* Hide table headers on mobile */
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 120px; /* Adjust width as needed */
+    }
+}
+
+/* Navbar hover effect */
+.nav-link:hover {
+    color: #d2691e !important;
+}
