@@ -41,20 +41,38 @@ body {
 .footer {
     background-color: #154c79 !important;
     color: #ffffff;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding for better visibility */
     text-align: center;
     width: 100%;
-    margin-top: auto; /* Push footer to the bottom */
-    height: 60px; /* Set a consistent height */
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer p {
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 .footer a {
     color: #ffffff;
     text-decoration: none;
+    margin: 0 10px; /* Spacing between social icons */
 }
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.footer i {
+    font-size: 20px; /* Adjust the size of the social media icons */
 }
 
 /* Navbar Styling */
@@ -91,6 +109,7 @@ body {
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
 }
 
 .table th,
@@ -193,15 +212,9 @@ button[type="submit"]:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .table-responsive {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
     .navbar-brand img {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
     }
 
     .navbar .nav-link {
