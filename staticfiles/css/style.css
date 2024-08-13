@@ -333,3 +333,76 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
         margin-bottom: 5px; /* Add space between stacked buttons */
     }
 }
+/*hero section*/
+.hero-section {
+    position: relative;
+    min-height: 60vh;  /* Keeps the hero section at a balanced height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;  /* Ensures the image covers the entire section without gray areas */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-section .container {
+    z-index: 2;
+}
+
+.hero-btn {
+    padding: 12px 24px;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+    max-width: 200px;  /* Set a max-width to prevent the button from stretching too much */
+    margin: 0 auto;  /* Center the button */
+    display: inline-block;  /* Ensure it doesn't expand to full width */
+    transition: all 0.3s ease;  /* Smooth transition for button hover effects */
+}
+
+.hero-btn:hover {
+    background-color: #d2691e;
+    border-color: #d2691e;
+}
+
+/* Adjustments for mobile and smaller screens */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 50vh;
+    }
+
+    .hero-btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        max-width: 180px;  /* Adjust max-width for smaller screens */
+    }
+
+    .display-4 {
+        font-size: 2.3rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 45vh;
+    }
+
+    .hero-btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+        max-width: 160px;  /* Adjust max-width for very small screens */
+    }
+
+    .display-4 {
+        font-size: 1.8rem;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+    }
+}
