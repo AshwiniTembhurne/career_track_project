@@ -1,3 +1,4 @@
+home.html
 {% extends 'base.html' %}
 {% load static %}
 
@@ -8,7 +9,7 @@
 <section class="hero-section text-center text-light py-5" style="background-image: url('{% static 'images/hero-bg.jpg' %}'); background-size: cover; background-position: center;">
     <div class="container">
         <h1 class="display-4">Your Pathway To Career Success</h1>
-        <p class="lead">Discover opportunities, apply for jobs, and track your applications all in one place.</p>
+        <p class="lead" style="color: #154c79;"> Take control of your career journey by effortlessly managing and organizing all your job applications in one powerful, user-friendly platform.</p>
         <a href="{% url 'signup' %}" class="btn btn-primary btn-lg" style="background-color: #e07b39; border-color: #e07b39;">Get Started</a>
     </div>
 </section>
@@ -42,21 +43,24 @@
         <h2 class="text-center mb-5">What Our Users Say</h2>
         <div class="row">
             <div class="col-md-4 text-center">
-                <img src="{% static 'images/user_a.png' %}" class="rounded-circle mb-3" alt="User A" width="100" height="100">
-                <p class="font-italic">"CareerTrack helped me find my dream job in no time!"</p>
-                <p><strong>User A</strong></p>
+                <img src="{% static 'images/user_a.png' %}" class="rounded-circle mb-3" alt="Emily Roberts" width="100" height="100">
+                <p class="font-italic">"CareerTrack made it so easy to organize and keep track of all my job applications, giving me peace of mind during my job search."</p>
+                <p><strong>Emily Roberts</strong></p>
             </div>
             <div class="col-md-4 text-center">
-                <img src="{% static 'images/user_b.png' %}" class="rounded-circle mb-3" alt="User B" width="100" height="100">
-                <p class="font-italic">"The application tracking feature is fantastic. I always know where I stand."</p>
-                <p><strong>User B</strong></p>
+                <img src="{% static 'images/user_b.png' %}" class="rounded-circle mb-3" alt="David Thompson" width="100" height="100">
+                <p class="font-italic">"With CareerTrack, I can effortlessly manage and update my job applications, staying organized and focused on my career goals."</p>
+                <p><strong>David Thompson</strong></p>
             </div>
             <div class="col-md-4 text-center">
-                <img src="{% static 'images/user_c.png' %}" class="rounded-circle mb-3" alt="User C" width="100" height="100">
-                <p class="font-italic">"Great career advice that helped me ace my interviews!"</p>
-                <p><strong>User C</strong></p>
+                <img src="{% static 'images/user_c.png' %}" class="rounded-circle mb-3" alt="Sarah Mitchell" width="100" height="100">
+                <p class="font-italic">"CareerTrack's intuitive platform allows me to efficiently manage my job applications, helping me stay on top of every opportunity."</p>
+                <p><strong>Sarah Mitchell</strong></p>
             </div>
         </div>
     </div>
 </section>
 {% endblock %}
+
+
+
