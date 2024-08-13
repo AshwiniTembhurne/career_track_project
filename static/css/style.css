@@ -4,6 +4,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Wrapper to handle full height */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* Hero Section */
@@ -12,7 +22,8 @@ body {
     color: #ffffff;
     padding: 50px 0;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    flex-grow: 1;
 }
 
 /* Section Padding */
@@ -32,19 +43,28 @@ body {
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
-    position: relative;
     width: 100%;
+    margin-top: auto; /* Push footer to the bottom */
+    height: 60px; /* Set a consistent height */
+    position: relative;
     bottom: 0;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer a {
     color: #ffffff;
     text-decoration: none;
+    margin: 0 10px; /* Spacing between social icons */
 }
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.footer i {
+    font-size: 20px; /* Adjust the size of the social media icons */
 }
 
 /* Navbar Styling */
@@ -59,6 +79,13 @@ body {
 
 .navbar-brand img {
     margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+/* Navbar hover effect */
+.nav-link:hover {
+    color: #d2691e !important;
 }
 
 /* Container Styling */
@@ -66,6 +93,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex-grow: 1; /* Allow container to expand */
 }
 
 /* Table Styling */
@@ -73,6 +101,7 @@ body {
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
 }
 
 .table th,
@@ -173,33 +202,11 @@ button[type="submit"]:hover {
     background-color: #d2691e;
 }
 
-/* Wrapper for full height */
-html, body {
-    height: 100%;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Content Section */
-#content {
-    flex: 1;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    .table-responsive {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
     .navbar-brand img {
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
     }
 
     .navbar .nav-link {
@@ -207,35 +214,44 @@ html, body {
     }
 
     .footer {
-        padding: 15px 0;
+        padding: 10px 0;
         font-size: 14px;
     }
 
-    .table th, .table td {
-        white-space: nowrap;
-    }
-
-    /* Make the application table columns stack vertically */
+    .table th,
     .table td {
         display: block;
         width: 100%;
-        text-align: left;
+        text-align: right;
         white-space: nowrap;
     }
 
-    .table th {
-        display: none; /* Hide table headers on mobile */
+    .table thead {
+        display: none;
     }
 
     .table td::before {
         content: attr(data-label);
         font-weight: bold;
         display: inline-block;
-        width: 120px; /* Adjust width as needed */
+        width: 50%;
+        text-align: left;
     }
 }
 
-/* Navbar hover effect */
-.nav-link:hover {
-    color: #d2691e !important;
+/* Additional Media Query for Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+
+    .footer {
+        padding: 15px 0;
+    }
 }

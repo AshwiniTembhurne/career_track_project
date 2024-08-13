@@ -1,39 +1,51 @@
+/* General Body Style */
 body {
     font-family: Arial, sans-serif;
-    background-color: yellow !important;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Wrapper to handle full height */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Hero Section */
 .hero-section {
     background-color: #154c79;
     color: #ffffff;
     padding: 50px 0;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    flex-grow: 1;
 }
 
-.features-section, .cta-section {
+/* Section Padding */
+.features-section, .cta-section, .testimonials-section {
     padding: 50px 0;
 }
 
-.testimonials-section {
-    padding: 50px 0;
-}
-
+/* Card Styles */
 .testimonial-card {
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer Styling */
 .footer {
     background-color: #154c79 !important;
     color: #ffffff;
     padding: 10px 0;
+    text-align: center;
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    flex-shrink: 0;
+    margin-top: auto; /* Push footer to the bottom */
+    height: 60px; /* Set a consistent height */
 }
 
 .footer a {
@@ -45,6 +57,7 @@ body {
     text-decoration: underline;
 }
 
+/* Navbar Styling */
 .navbar {
     margin-bottom: 20px;
 }
@@ -56,22 +69,24 @@ body {
 
 .navbar-brand img {
     margin-right: 10px;
+    width: 50px;
+    height: 50px;
 }
 
-.nav-link {
-    color: #ffffff !important;
-}
-
+/* Navbar hover effect */
 .nav-link:hover {
     color: #d2691e !important;
 }
 
+/* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex-grow: 1; /* Allow container to expand */
 }
 
+/* Table Styling */
 .table {
     width: 100%;
     margin-bottom: 1rem;
@@ -105,24 +120,24 @@ body {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Button Styling */
 .btn {
+    margin: 0 2px;
     padding: 0.375rem 0.75rem !important; 
-    margin: 0 2px !important; 
     font-size: 0.875rem !important; 
     border-radius: 0.25rem !important; 
 }
 
 .btn-primary {
-    background-color: #e07b39;
-    border-color: #e07b39;
+    background-color: #e07b39 !important;
+    border-color: #e07b39 !important;
 }
 
 .btn-primary:hover {
-    background-color: #d2691e;
-    border-color: #d2691e;
+    background-color: #d2691e !important;
+    border-color: #d2691e !important;
 }
 
-/* style the delete button */
 .btn-danger {
     background-color: #dc3545 !important;
     border-color: #dc3545 !important;
@@ -133,11 +148,7 @@ body {
     border-color: #bd2130 !important;
 }
 
-.container img {
-    max-width: 100%;
-    height: auto;
-}
-
+/* Form Container */
 .form-container {
     background-color: #D9D9D9;
     padding: 20px;
@@ -147,26 +158,7 @@ body {
     max-width: 600px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-#content {
-    flex: 1 0 auto;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Additional form styles */
-form {
-    margin: 20px 0;
-}
-
+/* Form Inputs */
 input[type="text"], input[type="email"], input[type="password"], textarea, select {
     width: 100%;
     padding: 10px;
@@ -199,32 +191,62 @@ button[type="submit"]:hover {
     background-color: #d2691e;
 }
 
-/* Responsive table adjustments */
-@media (max-width: 576px) {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-responsive {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar-brand img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar .nav-link {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    .table th,
+    .table td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        white-space: nowrap;
+    }
+
     .table thead {
         display: none;
     }
 
-    .table tbody td {
-        display: block;
-        width: 100%;
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
-    }
-
-    .table tbody td:before {
+    .table td::before {
         content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 15px;
         font-weight: bold;
+        display: inline-block;
+        width: 50%;
         text-align: left;
     }
+}
 
-    .table tbody td {
-        border-top: 1px solid #dee2e6;
-        padding: 0.75rem;
+/* Additional Media Query for Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-brand img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+
+    .footer {
+        padding: 15px 0;
     }
 }
