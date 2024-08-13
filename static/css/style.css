@@ -16,65 +16,6 @@ body {
     flex: 1;
 }
 
-/* Hero Section */
-.hero-section {
-    background-color: #154c79;
-    color: #ffffff;
-    padding: 50px 0;
-    background-size: cover;
-    background-position: center center;
-    flex-grow: 1;
-}
-
-/* Section Padding */
-.features-section, .cta-section, .testimonials-section {
-    padding: 50px 0;
-}
-
-/* Card Styles */
-.testimonial-card {
-    border: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer Styling */
-.footer {
-    background-color: #154c79 !important;
-    color: #ffffff;
-    padding: 15px 0; /* Increased padding for better visibility */
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-    position: relative;
-    bottom: 0;
-}
-
-.footer .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.footer p {
-    margin: 0;
-    padding-bottom: 10px;
-}
-
-.footer a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 10px; /* Spacing between social icons */
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-.footer i {
-    font-size: 20px; /* Adjust the size of the social media icons */
-}
-
 /* Navbar Styling */
 .navbar {
     margin-bottom: 20px;
@@ -91,11 +32,6 @@ body {
     height: 50px;
 }
 
-/* Navbar hover effect */
-.nav-link:hover {
-    color: #d2691e !important;
-}
-
 /* Container Styling */
 .container {
     max-width: 1200px;
@@ -109,7 +45,6 @@ body {
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
-    overflow-x: auto; /* Enable horizontal scroll on small screens */
 }
 
 .table th,
@@ -122,10 +57,6 @@ body {
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
-}
-
-.table tbody + tbody {
-    border-top: 2px solid #dee2e6;
 }
 
 .table-responsive {
@@ -167,83 +98,90 @@ body {
     border-color: #bd2130 !important;
 }
 
-/* Form Container */
-.form-container {
-    background-color: #D9D9D9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: auto;
-    max-width: 600px;
-}
-
-/* Form Inputs */
-input[type="text"], input[type="email"], input[type="password"], textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
-    border-color: #154c79;
-    outline: none;
-    box-shadow: 0 0 5px rgba(21, 76, 121, 0.5);
-}
-
-button[type="submit"] {
-    background-color: #e07b39;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+/* Footer Styling */
+.footer {
+    background-color: #154c79 !important;
+    color: #ffffff;
+    padding: 0px 0; /* Reduced padding to decrease footer height */
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 5px;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
 }
 
-button[type="submit"]:hover {
-    background-color: #d2691e;
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer p {
+    margin: 0;
+    padding-bottom: 0px; /* Reduced padding */
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px; /* Spacing between social icons */
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer i {
+    font-size: 20px; /* Adjust the size of the social media icons */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar-brand img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .navbar .nav-link {
-        font-size: 14px;
-    }
-
-    .footer {
-        padding: 10px 0;
-        font-size: 14px;
-    }
-
-    .table th,
-    .table td {
-        display: block;
-        width: 100%;
-        text-align: right;
-        white-space: nowrap;
+    .table {
+        border: 0;
     }
 
     .table thead {
         display: none;
     }
 
+    .table tr {
+        margin-bottom: 0.625rem;
+        display: block;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table td {
+        display: block;
+        text-align: right;
+        font-size: 0.8em;
+        border-bottom: 1px dotted #dee2e6;
+        position: relative;
+        padding-left: 50%;
+    }
+
     .table td::before {
         content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
         font-weight: bold;
-        display: inline-block;
-        width: 50%;
         text-align: left;
+    }
+
+    .table td:last-child {
+        border-bottom: 0;
+    }
+
+    .pagination {
+        font-size: 0.8em;
+    }
+
+    .btn {
+        font-size: 0.8em;
+        padding: 0.5em;
     }
 }
 
@@ -260,6 +198,138 @@ button[type="submit"]:hover {
     }
 
     .footer {
-        padding: 15px 0;
+        padding: 10px 0; /* Adjusted for tablets */
+    }
+}
+/* Navbar hover effect */
+.nav-link:hover {
+    color: #e07b39 !important;
+}
+
+/* Contact Us Form Container */
+.form-container {
+    background-color: #D9D9D9; /* Keeping the background consistent with design */
+    padding: 20px; /* Adequate padding for form container */
+    border-radius: 10px; /* Rounded corners for a smooth look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: auto;
+    max-width: 600px; /* Maximum width to keep the form compact */
+}
+
+/* Contact Us Form Labels */
+.form-label {
+    font-weight: bold;
+    color: #154c79; /* Matching label color with thetheme */
+}
+
+/* Contact Us Form Inputs */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #154c79; /* Focus border color matching the theme */
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 76, 121, 0.5);
+}
+
+/* Contact Us Submit Button */
+.btn-primary {
+    background-color: #e07b39 !important; /* Consistent button color */
+    border-color: #e07b39 !important;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    width: auto; 
+}
+
+.btn-primary:hover {
+    background-color: #d2691e !important;
+    border-color: #d2691e !important;
+}
+
+/* Responsive Adjustments for Contact Us Form */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+
+    .btn-primary {
+        width: 100%; /* Make the button full-width on small screens */
+        padding: 12px; /* Slightly larger padding for better touch interaction */
+    }
+}
+/* Button Group Container */
+.btn-action-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Ensure buttons stay on one line */
+}
+
+/* Individual Buttons */
+.btn-action-group .btn-action {
+    width: 100px; /* Fixed width for uniform size */
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping within buttons */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Specific Button Colors */
+.btn-action-primary {
+    background-color: #e07b39 !important;
+    border-color: #e07b39 !important;
+    color: #fff;
+}
+
+.btn-action-primary:hover {
+    background-color: #d2691e !important;
+    border-color: #d2691e !important;
+}
+
+.btn-action-info {
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    color: #fff;
+}
+
+.btn-action-info:hover {
+    background-color: #138496 !important;
+    border-color: #117a8b !important;
+}
+
+.btn-action-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff;
+}
+
+.btn-action-danger:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn-action-group {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Make buttons stretch to fill container width */
+    }
+
+    .btn-action-group .btn-action {
+        width: 100%; /* Make buttons full-width on mobile */
+        margin-bottom: 5px; /* Add space between stacked buttons */
     }
 }

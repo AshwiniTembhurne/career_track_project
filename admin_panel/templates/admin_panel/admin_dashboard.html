@@ -31,18 +31,22 @@
             <tbody>
                 {% for application in page_obj %}
                 <tr>
-                    <td>{{ application.job_title }}</td>
-                    <td>{{ application.company_name }}</td>
-                    <td>{{ application.get_status_display }}</td>
-                    <td>{{ application.application_date }}</td>
-                    <td>
-                        <a href="{% url 'admin_application_details' application.id %}" class="btn btn-info btn-sm">View</a>
-                        <a href="{% url 'admin_edit_application' application.id %}" class="btn btn-primary btn-sm">Edit</a>
-                        <form action="{% url 'admin_delete_application' application.id %}" method="post" style="display:inline;" onsubmit="return confirmDelete()">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
+                    <td data-label="Job Title">{{ application.job_title }}</td>
+                    <td data-label="Company Name">{{ application.company_name }}</td>
+                    <td data-label="Status">{{ application.get_status_display }}</td>
+                    <td data-label="Application Date">{{ application.application_date }}</td>
+                    <td data-label="Actions">
+                        <div class="btn-action-group">
+                            <a href="{% url 'admin_application_details' application.id %}" class="btn btn-action btn-action-info btn-sm">View</a>
+                            <a href="{% url 'admin_edit_application' application.id %}" class="btn btn-action btn-action-primary btn-sm">Edit</a>
+                            <form action="{% url 'admin_delete_application' application.id %}" method="post" style="display:inline;" onsubmit="return confirmDelete()">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-action btn-action-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
                     </td>
+                    
+                    
                 </tr>
                 {% endfor %}
             </tbody>
