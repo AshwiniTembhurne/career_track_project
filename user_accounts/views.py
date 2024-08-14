@@ -11,6 +11,7 @@ from .models import CustomUser
 def home(request):
     return render(request, 'user_accounts/home.html')
 
+
 # View for signing up new users
 def signup_view(request):
     if request.method == 'POST':

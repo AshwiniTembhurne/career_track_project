@@ -10,9 +10,19 @@
     <div class="container text-center">
         <h1 class="display-4">Your Pathway To Career Success</h1>
         <p class="lead">Manage and organize all your job applications on one user-friendly platform.</p>
-        <a href="{% url 'signup' %}" class="btn btn-primary hero-btn">Get Started</a>
+
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <a href="{% url 'admin_dashboard' %}" class="btn btn-primary hero-btn">Go to Admin Dashboard</a>
+            {% else %}
+                <a href="{% url 'user_dashboard' %}" class="btn btn-primary hero-btn">Go to Dashboard</a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'signup' %}" class="btn btn-primary hero-btn">Get Started</a>
+        {% endif %}
     </div>
 </section>
+
 
 <!-- Features Section -->
 <section class="features-section py-5 bg-light">

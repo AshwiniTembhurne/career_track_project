@@ -386,7 +386,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     }
 }
 
-/* Further adjustments for very small screens */
+/* adjustments for very small screens */
 @media (max-width: 576px) {
     .hero-section {
         min-height: 45vh;
@@ -395,7 +395,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     .hero-btn {
         padding: 8px 16px;
         font-size: 1rem;
-        max-width: 160px;  /* Adjust max-width for very small screens */
+        max-width: 160px; 
     }
 
     .display-4 {
