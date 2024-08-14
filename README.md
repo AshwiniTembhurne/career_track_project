@@ -63,7 +63,20 @@ CareerTrack was developed using Agile methodologies, with the project being divi
 ## Features
 
 - **User Registration and Authentication**: Secure registration and login system with user roles (admin and standard user).
-- **Dashboard**: Personalized user dashboard showing the status of job applications.
+### Sign up page
+![ User Sign Up page](static/images/signup.png)
+### Login page
+![ User Login Page](static/images/login.png)
+
+- **User Dashboard**: Personalized user dashboard showing the status of job applications.
+### User Dashboard
+![ User Dashboard](static/images/user_dashboard.png)
+### Add application page 
+![Add application page](static/images/add_application.png)
+### Edit application page
+![Edit application page](static/images/edit_application.png)
+### View application page
+![View application page](static/images/view_application.png)
 - **Admin Panel**: An admin dashboard with additional controls, including user management and application tracking.
 - **Job Application Management**: Users can add, edit, view, and delete job applications, along with the ability to track their status.
 - **Responsive Design**: Fully responsive design ensuring usability across mobile, tablet, and desktop devices.
