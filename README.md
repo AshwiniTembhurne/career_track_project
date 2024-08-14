@@ -20,6 +20,7 @@
 CareerTrack is a robust web application designed to streamline the job application process for users. It provides a platform for job seekers to manage and track their job applications effectively, helping them stay organized and informed throughout their job search journey. 
 
 Built with Django, Bootstrap, and a responsive design in mind, CareerTrack aims to provide a seamless and intuitive user experience across all devices. Whether you're applying for your first job or switching careers, CareerTrack helps you keep track of all your job applications in one place, ensuring you never miss an opportunity.
+![Desktop view](static/images/desktop_view.png)
 
 ## User Experience Design
 
