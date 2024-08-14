@@ -5,21 +5,16 @@
  ## Table of Contents
 
 1. [Introduction](#introduction)
+2. [User Experience Design](#user-experience-design)
+3. [Wireframes](#wireframes)
+4. [Agile Development Process](#agile-development-process)
+4. [Features](#features)
 
 ## Introduction
 
 CareerTrack is a robust web application designed to streamline the job application process for users. It provides a platform for job seekers to manage and track their job applications effectively, helping them stay organized and informed throughout their job search journey. 
 
 Built with Django, Bootstrap, and a responsive design in mind, CareerTrack aims to provide a seamless and intuitive user experience across all devices. Whether you're applying for your first job or switching careers, CareerTrack helps you keep track of all your job applications in one place, ensuring you never miss an opportunity.
-
-## Features
-
-- **User Registration and Authentication**: Secure registration and login system with user roles (admin and standard user).
-- **Dashboard**: Personalized user dashboard showing the status of job applications.
-- **Admin Panel**: An admin dashboard with additional controls, including user management and application tracking.
-- **Job Application Management**: Users can add, edit, view, and delete job applications, along with the ability to track their status.
-- **Responsive Design**: Fully responsive design ensuring usability across mobile, tablet, and desktop devices.
-- **Notifications**: Alert system for successful actions like logging in, signing up, and managing applications.
 
 ## User Experience Design
 
@@ -39,6 +34,7 @@ Wireframes were created during the planning phase to visualize the layout of key
 - **Home Page**: ![Home Page Wireframe](static/images/home_page_wireframe.png)
 - **User Dashboard**: ![User Dashboard Wireframe](static/images/user_dashboard_wireframe.png)
 - **Admin Dashboard**: ![Admin Dashboard Wireframe](static/images/admin_dashboard_wireframe.png)
+                      ![Admin Dashboard View User List Wireframe](static/images/admin_viewuser_list.png)
 - **Job Application Management**: ![Job Application Wireframe](static/images/job_application_wireframe.png)
 
 ### User Flow Diagram
@@ -55,7 +51,7 @@ The Entity-Relationship Diagram (ERD) outlines the database structure of CareerT
 
 ## Agile Development Process
 
-CareerTrack was developed using Agile methodologies, with the project being divided into sprints. Each sprint focused on different aspects of the application, from user authentication to job application management. User stories and tasks were tracked using tools like Trello or Jira, ensuring that the project stayed on track and met deadlines.
+CareerTrack was developed using Agile methodologies, with the project being divided into sprints. Each sprint focused on different aspects of the application, from user authentication to job application management.For user story management, I utilized GitHub's Project Board (also known as Kanban board) to organize and track the progress of tasks and user stories efficiently,[Here is the link of GitHub's Project Board](https://github.com/users/AshwiniTembhurne/projects/4/views/1)
 
 ### Sprint Overview
 
@@ -63,6 +59,15 @@ CareerTrack was developed using Agile methodologies, with the project being divi
 - **Sprint 2**: Job application management features.
 - **Sprint 3**: Admin panel and user management.
 - **Sprint 4**: Responsive design and final testing.
+
+## Features
+
+- **User Registration and Authentication**: Secure registration and login system with user roles (admin and standard user).
+- **Dashboard**: Personalized user dashboard showing the status of job applications.
+- **Admin Panel**: An admin dashboard with additional controls, including user management and application tracking.
+- **Job Application Management**: Users can add, edit, view, and delete job applications, along with the ability to track their status.
+- **Responsive Design**: Fully responsive design ensuring usability across mobile, tablet, and desktop devices.
+- **Notifications**: Alert system for successful actions like logging in, signing up, and managing applications.
 
 ## Testing
 
