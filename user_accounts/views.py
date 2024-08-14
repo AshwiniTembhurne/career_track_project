@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .forms import UserRegistrationForm
 from job_application.models import JobApplication
-from .models import CustomUser  # Ensure CustomUser is imported
+from .models import CustomUser  
 
 # Home page view
 def home(request):

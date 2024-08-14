@@ -1,6 +1,10 @@
-# CareerTrack
 
-![CareerTrack Logo](static/images/logo.png)
+
+ # CareerTrack     ![CareerTrack Logo](static/images/logo.png)  
+
+ ## Table of Contents
+
+1. [Introduction](#introduction)
 
 ## Introduction
 
@@ -135,4 +139,4 @@ Automated tests were written using Django’s testing framework to ensure that t
   - Django Documentation: For providing comprehensive guidance on building web applications with Django.
   - Bootstrap: For the responsive front-end framework used throughout the project.
   - Font Awesome & Bootstrap Icons: For providing the icons used in the application.
-  - Favicon by [Your Source]: For the favicon used in the application.
+  - Favicon used in the application.

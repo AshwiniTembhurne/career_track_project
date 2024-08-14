@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from job_application.models import JobApplication
 from job_application.forms import JobApplicationForm
 from user_accounts.models import CustomUser
-from user_accounts.forms import UserRegistrationForm  # Assuming this form can be used to edit users
+from user_accounts.forms import UserRegistrationForm  
 
 # Admin dashboard view with pagination for job applications
 @login_required
